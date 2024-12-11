@@ -360,7 +360,7 @@ def plot_pagerank_comparison_split(G, results):
     plt.xticks(x, [f'{val:.5f}' for val in x_ticks[:-1]])
     plt.xlabel('PageRank Score')
     plt.ylabel('Count')
-    plt.ylim(0, 3500)
+    plt.ylim(0, 1200)
     plt.grid(axis='y', alpha=0.3, linestyle='-')
     plt.title('Comparison of PageRank Distribution and Average PageRank (< 0.0005)', pad=20)
     plt.legend()
