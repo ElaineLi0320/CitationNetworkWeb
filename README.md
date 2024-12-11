@@ -18,8 +18,8 @@ This project is a web-based application that provides interactive tools for expl
 - After filtered: 5248 papers and 2601 edges
 
 ### Output Files
-- Edge data: `citation_network_edges1208_O`
-- Node data: `citation_network_nodes1208_O`
+- Edge data: `citation_network_edges2`
+- Node data: `citation_network_nodes2`
 
 ## 2 Data Handling
 
