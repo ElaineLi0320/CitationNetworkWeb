@@ -1,4 +1,4 @@
-# Citation Network Web
+# Paper Learning Path Recommendation System
 
 This project is a web-based application that provides interactive tools for exploring and analyzing citation networks. It leverages Flask for the backend, React for the frontend, and libraries such as NetworkX and Pandas for graph analysis and data manipulation.
 
@@ -9,7 +9,53 @@ This project is a web-based application that provides interactive tools for expl
 - **Dynamic Frontend**: Built with React for an engaging user experience.
 - **REST API**: Backend endpoints to handle requests and process data.
 
-## Installation
+## 1 Data Description
+
+### Dataset Statistics
+- Source file:https://www.aminer.cn/citation V1
+- Original sample:
+  First 100,000 papers from the dataset
+- After filtered: 5248 papers and 2601 edges
+
+### Output Files
+- Edge data: `citation_network_edges1208_O`
+- Node data: `citation_network_nodes1208_O`
+
+## 2 Data Handling
+
+### 1. Data Processing (dataProcess.py)
+Handles data preprocessing and filtering to generate standardized DataFrames.
+
+**Features:**
+- Data cleaning and standardization
+- DataFrame construction
+- Data filtering and preprocessing
+
+### 2. Gephi Export (networkGephi.py)
+Generates network files compatible with Gephi software.
+
+**Outputs:**
+- Node file (nodes.csv)
+- Edge file (edges.csv)
+
+**Advantages:**
+- Supports large-scale datasets
+- Compatible with professional network analysis tool Gephi
+
+### Usage Workflow
+1. Run dataProcess.py to process raw data
+2. Use networkGephi.py to generate files for Gephi and further application usage
+
+### Requirements
+
+```python
+networkx>=2.6
+pandas>=1.3.0
+numpy>=1.20.0
+```
+
+
+## 3 Website Installation
 
 ### Prerequisites
 - Python 3.7+
