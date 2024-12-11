@@ -60,6 +60,12 @@ def create_citation_network(df):
     # nodes_to_remove = [node for node, degree in node_degrees.items() if degree <= 1]
     # G.remove_nodes_from(nodes_to_remove)
 
+    # Remove isolated nodes
+    initial_nodes = G.number_of_nodes()
+    removed_count = remove_isolated_nodes(G)
+    print(f"\nRemoved {removed_count} isolated nodes (nodes with no connections)")
+    print(f"Nodes reduced from {initial_nodes} to {G.number_of_nodes()}")
+
     in_degree = dict(G.in_degree())
     out_degree = dict(G.out_degree())
     pagerank = nx.pagerank(G)
@@ -106,6 +112,22 @@ def create_citation_network(df):
             print(f"Average citations: {avg_citations:.2f}")
 
     return G
+
+
+def remove_isolated_nodes(G):
+    """
+    Remove nodes with both in-degree and out-degree of 0
+    Returns the number of nodes removed
+    """
+    in_degree = dict(G.in_degree())
+    out_degree = dict(G.out_degree())
+    
+    isolated_nodes = [node for node in G.nodes()
+                     if in_degree[node] == 0 and out_degree[node] == 0]
+    
+    G.remove_nodes_from(isolated_nodes)
+    return len(isolated_nodes)
+
 
 def main():
     """
